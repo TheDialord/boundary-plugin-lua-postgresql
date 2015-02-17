@@ -1,0 +1,80 @@
+{
+  "description" : "Awaiting Certification - Collects statistics from PostgreSQL Database",
+  "icon" : "icon.png",
+  "command" : "python postgres_plugin.py $(host) $(port) $(database) $(username) $(password) $(source)",
+  “command_lua” : “boundary-meter index.lua”,
+  “postExtract_lua” : “”,
+  "ignore" : "node_modules",
+
+  "metrics" : [
+                 "POSTGRESQL_EXCLUSIVE_LOCKS",
+                 "POSTGRESQL_ROW_EXCLUSIVE_LOCKS",
+                 "POSTGRESQL_SHARE_ROW_EXCLUSIVE_LOCKS",
+                 "POSTGRESQL_SHARE_UPDATE_EXCLUSIVE_LOCKS",
+                 "POSTGRESQL_SHARE_LOCKS",
+                 "POSTGRESQL_ACCESS_SHARE_LOCKS",
+                 "POSTGRESQL_CHECKPOINT_WRITE_TIME",
+                 "POSTGRESQL_CHECKPOINTS_TIMED",
+                 "POSTGRESQL_BUFFERS_ALLOCATED",
+                 "POSTGRESQL_BUFFERS_CLEAN",
+                 "POSTGRESQL_BUFFERS_BACKEND_FSYNC",
+                 "POSTGRESQL_CHECKPOINT_SYNCHRONIZATION_TIME",
+                 "POSTGRESQL_CHECKPOINTS_REQUESTED",
+                 "POSTGRESQL_BUFFERS_BACKEND",
+                 "POSTGRESQL_MAXIMUM_WRITTEN_CLEAN",
+                 "POSTGRESQL_BUFFERS_CHECKPOINT",
+                 "POSTGRESQL_BLOCKS_READ",
+                 "POSTGRESQL_DISK_SIZE",
+                 "POSTGRESQL_TRANSACTIONS_COMMITTED",
+                 "POSTGRESQL_TRANSACTIONS_ROLLEDBACK",
+                 "POSTGRESQL_BLOCKS_HIT",
+                 "POSTGRESQL_TUPLES_DELETED",
+                 "POSTGRESQL_TUPLES_FETCHED",
+                 "POSTGRESQL_TUPLES_INSERTED",
+                 "POSTGRESQL_TUPLES_RETURNED",
+                 "POSTGRESQL_TUPLES_UPDATED"
+	],
+
+	"dashboards": [
+        { "name":"PostgreSQL Lock Stats", "layout": "d-w=3&d-h=2&d-pad=5&d-bg=none&d-g-POSTGRESQL_EXCLUSIVE_LOCKS=0-0-1-1&d-g-POSTGRESQL_ROW_EXCLUSIVE_LOCKS=0-1-1-1&d-g-POSTGRESQL_SHARE_ROW_EXCLUSIVE=1-1-1-1&d-g-POSTGRESQL_SHARE_UPDATE_EXCLUSIVE=2-1-1-1&d-g-POSTGRESQL_SHARE_LOCKS=2-0-1-1&d-g-POSTGRESQL_ACCESS_SHARE_LOCKS=1-0-1-1" },
+        { "name":"PostgreSQL Reader Stats", "layout": "d-w=3&d-h=3&d-pad=5&d-bg=none&d-g-POSTGRESQL_CHECKPOINT_WRITE_TIME=0-0-1-1&d-g-POSTGRESQL_CHECKPOINTS_TIMED=0-1-1-1&d-g-POSTGRESQL_BUFFERS_ALLOCATED=0-2-1-1&d-g-POSTGRESQL_BUFFERS_CLEAN=1-0-1-1&d-g-POSTGRESQL_BUFFERS_BACKEND_FSYNC=1-1-1-1&d-g-POSTGRESQL_BUFFERS_BACKEND=1-2-1-1&d-g-POSTGRESQL_CHECKPOINTS_REQUESTED=2-2-1-1&d-g-POSTGRESQL_CHECKPOINT_SYNC_TIME=2-1-1-1&d-g-POSTGRESQL_BUFFERS_CHECKPOINT=2-0-1-1" },
+        { "name":"PostgreSQL DB Stats", "layout": "d-w=3&d-h=4&d-pad=5&d-bg=none&d-g-POSTGRESQL_BUFFERS_CHECKPOINT=0-0-1-1&d-g-POSTGRESQL_BLOCKS_READ=1-0-1-1&d-g-POSTGRESQL_DISK_SIZE=2-0-1-1&d-g-POSTGRESQL_TRANSACTIONS_COMMITTED=0-1-1-1&d-g-POSTGRESQL_TUPLES_DELETED=1-1-1-1&d-g-POSTGRESQL_TRANSACTIONS_ROLLEDBACK=2-1-1-1&d-g-POSTGRESQL_BLOCKS_HIT=0-2-1-1&d-g-POSTGRESQL_TUPLES_RETURNED=1-2-1-1&d-g-POSTGRESQL_TUPLES_FETCHED=2-2-1-1&d-g-POSTGRESQL_TUPLES_UPDATED=0-3-1-1&d-g-POSTGRESQL_TUPLES_INSERTED=2-3-1-1" }
+
+    ],
+    "paramSchema" : [
+        {
+            "title" : "host",
+            "description" : "database host name or IP",
+            "type" : "string",
+            "default" : "127.0.0.1"
+        },
+        {
+            "title" : "port",
+            "description" : "PostgreSQL Port",
+            "type" : "integer",
+            "default" : "5432"
+        },
+        {
+            "title" : "database",
+            "description" : "database name",
+            "type" : "string",
+            "default" : "postgres"
+        },
+        {
+            "title" : "username",
+            "description" : "PostgreSQL username",
+            "type" : "string"
+        },
+        {
+            "title" : "password",
+            "description" : "PostgreSQL Password (if not required put anything)",
+            "type" : "password"
+        },
+        {
+            "title" : "source",
+            "description" : "display name",
+            "type" : "string",
+            "default" : "My_PGSQL_Server"
+        }
+    ]
+}
