@@ -1,8 +1,18 @@
-{
-	"host":"localhost",
-	"port":5432,
-	"user":"postgres",
-	"pwd":"123qwe",
-	"database":"postgres",
-	"source":""
-}
+[
+  {
+  "host": "localhost",
+  "port": 5432,
+  "user":"postgres",
+  "password": "123qwe",
+  "database": "postgres",
+  "source": ""
+  },
+  {
+  "host": "localhost",
+  "port": 5432,
+  "user":"postgres",
+  "password": "123qwe",
+  "database": "postgres",
+  "source": "test"
+  }
+]
