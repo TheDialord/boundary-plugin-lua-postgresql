@@ -1,5 +1,7 @@
 local boundary = require('boundary')
 local pginfo = require('pginfo')
+local table = require('table')
+local string = require('string')
 
 -- Default params
 local connections = {

@@ -8,6 +8,8 @@
 
 local object = require('core').Object
 local ffi = require("ffi")
+local string = require('string')
+local table = require('table')
 
 --[[ Check os for binding library path
 ]]
